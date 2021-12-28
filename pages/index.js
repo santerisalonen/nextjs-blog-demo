@@ -21,7 +21,7 @@ export default function Home({ allPostsData, products }) {
       </section>
       <div>
         <ul>
-        {products.data.map( (props) => {
+        {products && Array.isArray(products) && products.data.map( (props) => {
             return (
               <>
                 <li>
@@ -64,13 +64,13 @@ export default function Home({ allPostsData, products }) {
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
 
-  const resp = await fetch('http://localhost:1337/api/products?populate=*')
+ // const resp = await fetch('http://localhost:1337/api/products?populate=*')
   const str = await resp.json()
 
   return {
     props: {
       allPostsData : allPostsData,
-      products: str
+      //products: str
     }
   }
 }
