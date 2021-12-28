@@ -64,12 +64,13 @@ export default function Home({ allPostsData, products }) {
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
 
- // const resp = await fetch('http://localhost:1337/api/products?populate=*')
-  const str = await resp.json()
+  // const resp = await fetch('http://localhost:1337/api/products?populate=*')
+  // const str = await resp.json()
 
   return {
     props: {
       allPostsData : allPostsData,
+      products : false,
       //products: str
     }
   }
